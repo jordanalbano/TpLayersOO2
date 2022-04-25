@@ -36,12 +36,6 @@ public class Participante {
 		if (!region.equals("China") && !region.equals("US") && !region.equals("Europa")) {
 			throw new ExcepcionPorRegionDesconocida("Region desconocida. Las conocidas son: China, US, Europa");
 		}
-		try {
-			int res = Integer.parseInt(telefono);
-		} catch (NumberFormatException e) {
-			throw new NumberFormatException("el telefono no debe tener una letra");
-		}
-
 	}
 
 	public String nombre() {

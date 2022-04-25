@@ -8,5 +8,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/usuario/Desktop/jakarta.activation-1.2.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/usuario/Desktop/jakarta.mail-1.6.4.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

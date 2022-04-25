@@ -27,7 +27,7 @@ public class EnvioCorreos {
 	 * this.mensaje = "Feliz cumpleaños"; this.portadaMensaje = "Hola " + nombre; }
 	 */
 
-	public static void enviarCorreo(String destinatario, String miCorreo, String nombre) {
+	public static boolean enviarCorreo(String destinatario, String miCorreo, String nombre) {
 		props = new Properties();
 		props.put("mail.smtp.auth", "true");
 		props.put("mail.smtp.starttls.enable", "true");// it’s optional in Mailtrap
@@ -58,10 +58,9 @@ public class EnvioCorreos {
 
 			// Send message
 			Transport.send(message);
-			System.out.println("Sent message successfully....");
-
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
 		}
+		return true;
 	}
 }
