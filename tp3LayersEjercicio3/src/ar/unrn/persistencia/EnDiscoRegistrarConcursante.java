@@ -7,8 +7,9 @@ import java.nio.file.StandardOpenOption;
 
 import ar.unrn.modelo.Concursante;
 import ar.unrn.modelo.RegistroConcursante;
+//EN DISCO.Mal
 
-public class EnMemoriaRegistrarConcursante implements RegistroConcursante {
+public class EnDiscoRegistrarConcursante implements RegistroConcursante {
 
 	@Override
 	public void saveInscription(Concursante concursante) {

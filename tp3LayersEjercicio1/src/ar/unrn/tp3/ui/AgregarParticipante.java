@@ -15,16 +15,15 @@ import ar.unrn.tp3.excepciones.AppException;
 import ar.unrn.tp3.excepciones.ExcepcionPorMalFormaDeIngresoDeTelefono;
 import ar.unrn.tp3.excepciones.ExcepcionPorRegionDesconocida;
 import ar.unrn.tp3.excepciones.ExcepcionPorStringNulo;
-import ar.unrn.tp3.modelo.Participante;
-import ar.unrn.tp3.modelo.RepositorioDeParticipantes;
+import ar.unrn.tp3.modelo.EntradaNuevoParticipante;
 
 public class AgregarParticipante extends JFrame {
 	private JTextField nombre;
 	private JTextField telefono;
 	private JTextField region;
-	private RepositorioDeParticipantes participantes;
+	private EntradaNuevoParticipante participantes;
 
-	public AgregarParticipante(RepositorioDeParticipantes repositorio) {
+	public AgregarParticipante(EntradaNuevoParticipante repositorio) {
 		this.participantes = repositorio;
 		setupUIComponents();
 	}
@@ -69,8 +68,7 @@ public class AgregarParticipante extends JFrame {
 
 	private void onBotonCargar() throws ExcepcionPorStringNulo, ExcepcionPorMalFormaDeIngresoDeTelefono,
 			ExcepcionPorRegionDesconocida, AppException {
-		Participante participante = new Participante(nombre.getText(), telefono.getText(), region.getText());
-		this.participantes.nuevoParticipante(participante);
+		this.participantes.nuevoParticipante(nombre.getText(), telefono.getText(), region.getText());
 
 	}
 

@@ -24,10 +24,9 @@ import ar.unrn.excepciones.ExcepcionPorMalFormaDeIngresoDeTelefono;
 import ar.unrn.excepciones.ExcepcionPorMalIngresoDeEmail;
 import ar.unrn.excepciones.ExcepcionPorNoEleccionDeConcurso;
 import ar.unrn.excepciones.ExcepcionPorStringVacio;
-import ar.unrn.modelo.Concursante;
 import ar.unrn.modelo.Concurso;
-import ar.unrn.modelo.RegistroConcursante;
-import ar.unrn.modelo.RegistroConcursos;
+import ar.unrn.modelo.EntradaConcursantes;
+import ar.unrn.modelo.EntradaConcursos;
 
 public class RadioCompetition {
 	private JPanel contentPane;
@@ -44,15 +43,15 @@ public class RadioCompetition {
 	private JComboBox<String> comboBox;
 	private JButton btnOk;
 	private JLabel lblCompetition;
-	private RegistroConcursante registroConcursantes;
-	private RegistroConcursos registroConcursos;
+	private EntradaConcursantes registroConcursantes;
+	private EntradaConcursos registroConcursos;
 
 	private List<Integer> idConcursos = new ArrayList<Integer>();
 
-	public RadioCompetition(RegistroConcursante registroConcursante, RegistroConcursos registroConcurso) {
+	public RadioCompetition(EntradaConcursantes registroConcursante, EntradaConcursos entradaConcursos) {
 
 		this.registroConcursantes = registroConcursante;
-		this.registroConcursos = registroConcurso;
+		this.registroConcursos = entradaConcursos;
 		var frame = new JFrame("Inscription to Competition");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBounds(100, 100, 451, 229);
@@ -109,12 +108,11 @@ public class RadioCompetition {
 
 	private void saveInscription() {
 		try {
-			Concursante concursante = new Concursante(this.txtName.getText(), this.txtLastName.getText(),
+			// crear otra interfaz de entrada
+
+			this.registroConcursantes.saveInscription(this.txtName.getText(), this.txtLastName.getText(),
 					this.txtPhone.getText(), this.txtEmail.getText(), this.txtId.getText(),
 					this.idConcursos.get(comboBox.getSelectedIndex()));
-
-			this.registroConcursantes.saveInscription(concursante);
-
 			JOptionPane.showMessageDialog(null, "Concursante cargado con exito", "Mensaje Informativo",
 					JOptionPane.INFORMATION_MESSAGE);
 		} catch (NumberFormatException | ExcepcionPorStringVacio | ExcepcionPorMalIngresoDeEmail

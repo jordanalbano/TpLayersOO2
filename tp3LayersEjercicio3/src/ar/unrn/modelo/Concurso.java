@@ -9,6 +9,7 @@ public class Concurso {
 	private LocalDate fechaFinInscripcion;
 
 	public Concurso(String idConcurso, String nombre, LocalDate fechaIni, LocalDate fechaFin) {
+
 		this.idConcurso = Integer.parseInt(idConcurso);
 		this.nombre = nombre;
 		this.fechaInscripcion = fechaIni;

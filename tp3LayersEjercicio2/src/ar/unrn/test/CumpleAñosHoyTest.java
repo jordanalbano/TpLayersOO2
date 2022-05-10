@@ -6,26 +6,18 @@ import java.time.LocalDate;
 
 import org.junit.jupiter.api.Test;
 
-import ar.unrn.excepciones.ExcepcionPorStringNulo;
-import ar.unrn.memoria.EnvioCorreos;
 import ar.unrn.modelo.Empleado;
 
 class CumpleAñosHoyTest {
 
 	@Test
-	void test() {
+	void test() throws RuntimeException {
 
 		Empleado juanBola;
 		boolean seEnvio = false;
-		try {
-			juanBola = new Empleado("juan", "bola", LocalDate.of(1980, 04, 25), "juanBola2@gmail.com");
-			if (juanBola.cumpleAñosHoy()) {
-				seEnvio = EnvioCorreos.enviarCorreo(juanBola.email(), "jordanalbano86@gmail.com", juanBola.nombre());
-			}
-		} catch (ExcepcionPorStringNulo e) {
-			// TODO Bloque catch generado automáticamente
-			e.printStackTrace();
-		}
+
+		juanBola = new Empleado("juan", "bola", LocalDate.of(1980, 05, 7), "juanBola2@gmail.com");
+
 		assertEquals(seEnvio, true);
 	}
 

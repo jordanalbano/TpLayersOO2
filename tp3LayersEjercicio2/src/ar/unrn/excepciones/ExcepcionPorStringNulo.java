@@ -1,6 +1,6 @@
 package ar.unrn.excepciones;
 
-public class ExcepcionPorStringNulo extends Exception {
+public class ExcepcionPorStringNulo extends RuntimeException {
 	public ExcepcionPorStringNulo(String message) {
 		super(message);
 	}

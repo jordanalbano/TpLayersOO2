@@ -5,8 +5,6 @@ import java.util.ArrayList;
 
 import ar.unrn.excepciones.AppException;
 
-public interface RegistroConcursos {
-
+public interface EntradaConcursos {
 	ArrayList<Concurso> todosLosConcursos() throws IOException, AppException;
-
 }

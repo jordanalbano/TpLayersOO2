@@ -1,4 +1,4 @@
-package ar.unrn.memoria;
+package ar.unrn.modelo;
 
 import java.util.Properties;
 
@@ -58,6 +58,7 @@ public class EnvioCorreos {
 
 			// Send message
 			Transport.send(message);
+			System.out.println("se envio");
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
 		}

@@ -10,12 +10,11 @@ import java.util.List;
 import ar.unrn.modelo.Concurso;
 import ar.unrn.modelo.RegistroConcursos;
 
-public class EnMemoriaRegistrarConcursos implements RegistroConcursos {
+public class EnDiscoRegistrarConcursos implements RegistroConcursos {
 
 	@Override
 	public ArrayList<Concurso> todosLosConcursos() throws IOException {
 		List<String> fileData = Files.readAllLines(Paths.get("C:\\Users\\usuario\\Desktop\\concursos.txt"));
-
 		ArrayList<Concurso> listaConcursos = new ArrayList<>();
 
 		for (String s : fileData) {

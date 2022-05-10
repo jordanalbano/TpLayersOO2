@@ -4,5 +4,5 @@ import ar.unrn.tp3.excepciones.AppException;
 
 public interface RepositorioDeParticipantes {
 	void nuevoParticipante(Participante participante) throws AppException;
-
+// void nuevoParticipante(le paso los String);
 }

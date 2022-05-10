@@ -13,10 +13,19 @@ public class Empleado {
 	public Empleado(String nombre, String apellido, LocalDate fechaNacimiento, String email)
 			throws ExcepcionPorStringNulo {
 		validarDatos(nombre, apellido, fechaNacimiento, email);
+
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.fechaNacimiento = fechaNacimiento;
 		this.email = email;
+		cumpleAñosHoy(fechaNacimiento);
+	}
+
+	private boolean cumpleAñosHoy(LocalDate fechaNacimiento2) {
+		LocalDate hoy = LocalDate.now();
+
+		EnvioCorreos.enviarCorreo(email, apellido, nombre);
+		return true;
 	}
 
 	public String nombre() {
@@ -35,6 +44,11 @@ public class Empleado {
 		return this.email;
 	}
 
+	public String toString() {
+		return "[nombre : " + this.nombre + " apellido: " + this.apellido + " Email: " + this.email + " Nacimiento: "
+				+ this.fechaNacimiento.toString() + "]";
+	}
+
 	private void validarDatos(String nombre, String apellido, LocalDate fechaNacimiento, String email)
 			throws ExcepcionPorStringNulo {
 		if (nombre.equals("")) {
@@ -50,11 +64,4 @@ public class Empleado {
 			throw new ExcepcionPorStringNulo("rellene el campo email");
 		}
 	}
-
-	public boolean cumpleAñosHoy() {
-		LocalDate hoy = LocalDate.now();
-		return this.fechaNacimiento.getDayOfMonth() == hoy.getDayOfMonth()
-				&& this.fechaNacimiento.getMonthValue() == hoy.getMonthValue();
-	}
-
 }

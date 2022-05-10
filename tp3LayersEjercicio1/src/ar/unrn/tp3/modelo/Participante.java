@@ -9,6 +9,13 @@ public class Participante {
 	private String nombre;
 	private String region;
 
+	// falta una clase en el medio, no aca
+	// hacer una implementacion de repositorio participante
+	// interfaces de entrada y de salida(en este caso salida lo implementa jdbc)
+	// de entrada seria el mismo
+	// a la int de entrada: EntradaNuevoParticipante
+	// RepositorioDeParticipantes
+	// implementar con RuntimeException
 	public Participante(String nombre, String telefono, String region)
 			throws ExcepcionPorStringNulo, ExcepcionPorMalFormaDeIngresoDeTelefono, ExcepcionPorRegionDesconocida {
 		validarDatos(nombre, telefono, region);
